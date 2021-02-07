@@ -327,7 +327,7 @@ console.log(6);
 
 
 <!-- more -->
-<br>
+<img class="banner-pic" src="https://static.slybootslion.com/picture/2f92363c-6832-4450-9e9a-080391fcd262/blog/202102/07/e144b2862ec9e808db17db949e544825.jpg">
 
 
 答案： 
