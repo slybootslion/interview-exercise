@@ -6,7 +6,7 @@ tags:
 ---
 
 <!--banner-pic|sticker|content-img|content-img-half-->
-<img class="banner-pic" src="https://static.slybootslion.com/picture/undefined/blog/202102/07/7c993e3edd08e70cfa3631d5128d801b.png">
+<img class="banner-pic" src="http://oss.slybootslion.com/blog/7c993e3edd08e70cfa3631d5128d801b.png?x-oss-process=image/auto-orient,1/quality,q_90/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_18,shadow_70,t_74,x_10,y_10"/>
 
 主要考察点
 - 执行顺序
@@ -327,7 +327,9 @@ console.log(6);
 
 
 <!-- more -->
-<img class="banner-pic" src="https://static.slybootslion.com/picture/2f92363c-6832-4450-9e9a-080391fcd262/blog/202102/07/e144b2862ec9e808db17db949e544825.jpg">
+<br/>
+
+<img class="banner-pic" src="http://oss.slybootslion.com/blog/ymqv8d.jpg?x-oss-process=image/auto-orient,1/quality,q_90/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_18,shadow_70,t_74,x_10,y_10"/>
 
 
 答案： 
