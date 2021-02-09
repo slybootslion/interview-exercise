@@ -324,15 +324,9 @@ async1();
 console.log(6);
 ```
 
-
-
-<!-- more -->
-<br/>
-
-<img class="banner-pic" src="http://oss.slybootslion.com/blog/ymqv8d.jpg?x-oss-process=image/auto-orient,1/quality,q_90/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_18,shadow_70,t_74,x_10,y_10"/>
-
-
 答案： 
+<!-- more -->
+
 01: 
 1, 2
 

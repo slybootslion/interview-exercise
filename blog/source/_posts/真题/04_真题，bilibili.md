@@ -13,9 +13,5 @@ tags:
 
 <!-- more -->
 
----
-
-<img class="banner-pic" src="http://oss.slybootslion.com/blog/wallhaven-4gekke.png?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
-
 
 
