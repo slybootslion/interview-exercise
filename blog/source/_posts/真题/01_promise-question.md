@@ -3,6 +3,7 @@ title: "19道promise题"
 date: 2021-02-07 15:48:24
 tags:
   - 面试
+  - promise
 ---
 
 <!--banner-pic|sticker|content-img|content-img-half-->
