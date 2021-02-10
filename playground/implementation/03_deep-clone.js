@@ -12,66 +12,34 @@ function deepClone (value) {
 
 // 精进版
 function deep_clone (value) {
-  const isType = (obj, type) => {
-    if (typeof obj !== 'object') return false
-    const typeString = Object.prototype.toString.call(obj)
-    let flag
-    switch (type) {
-      case 'Array':
-        flag = typeString === '[object Array]'
-        break
-      case 'Date':
-        flag = typeString === '[object Date]'
-        break
-      case 'RegExp':
-        flag = typeString === '[object RegExp]'
-        break
-      default:
-        flag = false
+  if (obj === null) return obj; // 如果是null或者undefined我就不进行拷贝操作
+  if (obj instanceof Date) return new Date(obj);
+  if (obj instanceof RegExp) return new RegExp(obj);
+  // 可能是对象或者普通的值  如果是函数的话是不需要深拷贝
+  if (typeof obj !== "object") return obj;
+  // 是对象的话就要进行深拷贝
+  if (hash.get(obj)) return hash.get(obj);
+  let cloneObj = new obj.constructor();
+  // 找到的是所属类原型上的constructor,而原型上的 constructor指向的是当前类本身
+  hash.set(obj, cloneObj);
+  for (let key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      // 实现一个递归拷贝
+      cloneObj[key] = deepClone(obj[key], hash);
     }
-    return flag
   }
-  // 正则的特殊处理
-  const getRegExp = (v) => {
-    let flags = ''
-    if (v.global) flags += 'g'
-    if (v.ignoreCase) flags += 'i'
-    if (v.multiline) flags += 'm'
-    return flags
-  }
-  // 防止循环引用的数组
-  const values = []
-  const objs = []
-
-  const _clone = value => {
-    if (value === null) return null;
-    if (typeof value !== 'object') return value;
-
-    let obj, proto
-    if (isType(value, 'Array')) {
-      obj = []
-    } else if (isType(value, 'RegExp')) {
-      obj = new RegExp(value.source, getRegExp(value))
-      if (value.lastIndex) obj.lastIndex = value.lastIndex
-    } else if (isType(value, 'Date')) {
-      obj = new Date(value.getTime())
-    } else {
-      console.log(value)
-      proto = Object.getPrototypeOf(value)
-      // 切断原型链
-      obj = Object.create(proto)
-    }
-    const index = values.indexOf(value)
-    if (index !== -1) return objs[index]
-    values.push(value)
-    objs.push(obj)
-    for (const valueKey in value) {
-      obj[valueKey] = _clone(value[valueKey])
-    }
-    return obj
-  }
-  return _clone(value)
+  return cloneObj;
 }
+
+// 测试用例
+/*
+const map = new Map();
+map.set('key', 'value');
+map.set('ConardLi', 'code秘密花园');
+
+const set = new Set();
+set.add('ConardLi');
+set.add('code秘密花园');
 
 const target = {
   field1: 1,
@@ -79,17 +47,26 @@ const target = {
   field3: {
     child: 'child'
   },
-  field4: [2, 4, 8]
-};
-
-const r = deepClone(target)
-// 简版
-const newObj = JSON.parse(JSON.stringify(target))
-const obj = deep_clone(target)
-target.field4[1] = 3
-
+  field4: [2, 4, 8],
+  empty: null,
+  map,
+  set,
+  bool: new Boolean(true),
+  num: new Number(2),
+  str: new String(2),
+  date: new Date(),
+  reg: /\d+/,
+  error: new Error(),
+  func1: () => {
+    console.log('code秘密花园');
+  },
+  func2: function (a, b) {
+    return a + b;
+  }
+}
+target.target = target;
+const obj = deepClone(target)
+obj.reg = 'abc'
 console.log(target)
-console.log(r)
-console.log(newObj)
 console.log(obj)
-
+* */

@@ -117,6 +117,8 @@ obj2.sports = 'football'
 console.log(obj1) // { person: { name: 'wade', age: 41 }, sports: 'basketball' }
 ```
 
+<!-- more -->
+
 - 展开运算符...
 
 ```js
@@ -193,6 +195,3 @@ let d = deepClone(obj);
 obj.address.x = 200;
 console.log(d);
 ```
-
-
-<!-- more -->
