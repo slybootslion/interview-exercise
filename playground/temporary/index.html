@@ -5,7 +5,31 @@
   <title>Title</title>
 </head>
 <body>
+<div id="outer">
+  outer
+  <div id="inner">inner</div>
+</div>
 <script src="./index.js" charset="utf-8"></script>
-<script type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+window.onclick = function() {
+  console.log('window');
+}
+document.onclick = function() {
+  console.log('document');
+}
+document.documentElement.onclick = function() {
+  console.log('html');
+}
+document.body.onclick = function() {
+  console.log('body');
+}
+outer.onclick = function(ev) {
+  console.log('outer');
+}
+inner.onclick = function(ev) {
+  console.log('inner')
+  ev.stopPropagation()
+}
+</script>
 </body>
 </html>

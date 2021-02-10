@@ -1,5 +1,5 @@
 ---
-title: "JavaScript核心考点01：变量类型"
+title: "JavaScript核心考点（基础版）01：变量类型"
 date: 2021-02-09 16:17:01
 tags:
   - 面试
