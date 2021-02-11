@@ -3,5 +3,5 @@ function newFun () {
   const [constructor, ...args] = [...arguments]
   obj.__proto__ = constructor.prototype
   const res = constructor.apply(obj, args)
-  return typeof res === 'object' ? res : obj
+  return typeof res === 'object' && res != null ? res : obj
 }

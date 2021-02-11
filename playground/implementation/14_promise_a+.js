@@ -132,8 +132,3 @@ class MyPromise {
     return promise2
   }
 }
-
-
-const promise = new MyPromise((resolve, reject) => resolve('success'))
-
-promise.then(console.log)

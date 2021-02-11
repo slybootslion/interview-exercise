@@ -36,18 +36,18 @@ Function.prototype.myBindPlus = function (ctx, ...args) {
   const key = Symbol()
   ctx[key] = this
 
-  const fNOP = function () {}
-  const fBound = function () {
+  const tempFn = function () {}
+  const resFn = function () {
     return ctx[key].apply(
-      // this instanceof fBound === true时,说明返回的fBound被当做new的构造函数调用
-      this instanceof fBound ? this : ctx,
+      // this instanceof resFn === true时,说明返回的resFn被当做new的构造函数调用
+      this instanceof resFn ? this : ctx,
       args
     )
   }
   // 维护原型关系
-  if (this.prototype) fNOP.prototype = this.prototype
-  // 下行的代码使fBound.prototype是fNOP的实例,因此
-  // 返回的fBound若作为new的构造函数,new生成的新对象作为this传入fBound,新对象的__proto__就是fNOP的实例
-  fBound.prototype = new fNOP()
-  return fBound
+  if (this.prototype) tempFn.prototype = this.prototype
+  // 下行的代码使resFn.prototype是tempFn的实例,因此
+  // 返回的resFn若作为new的构造函数,new生成的新对象作为this传入resFn,新对象的__proto__就是tempFn的实例
+  resFn.prototype = new tempFn()
+  return resFn
 }
