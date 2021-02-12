@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="div-ele" style="width: 100px;height: 100px;background-color: #c00;"></div>
+<script type="text/javascript" charset="utf-8">
+const divElement = document.querySelector('#div-ele')
+divElement.style.position = 'relative'
+
+let fize = false
+let position = { left: 0, top: 0 }
+
+divElement.addEventListener('mousedown', (e) => {
+  fize = true
+  position.left = e.clientX
+  position.top = e.clientY
+})
+
+divElement.addEventListener('mousemove', (e) => {
+  if (!fize) return false
+  const { top, left } = position
+  const x = e.clientX
+  const y = e.clientY
+  position.left = x
+  position.top = y
+  const moveLeft = x - left
+  const moveTop = y - top
+  const eleLeft = (parseInt(divElement.style.left) || 0) + moveLeft
+  const eleTop = (parseInt(divElement.style.top) || 0) + moveTop
+  divElement.style.left = `${eleLeft}px`
+  divElement.style.top = `${eleTop}px`
+})
+
+divElement.addEventListener('mouseup', (e) => {
+  fize = false
+})
+</script>
+</body>
+</html>

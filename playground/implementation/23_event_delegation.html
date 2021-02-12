@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul id="ul-ele"></ul>
+<script type="text/javascript" charset="utf-8">
+const ulEle = document.querySelector('#ul-ele')
+const frag = document.createDocumentFragment()
+for (let i = 0; i < 3; i++) {
+  const li = document.createElement('li')
+  li.innerHTML = `li标签${i + 1}<div><span>序号${i + 1}</span></div>`
+  frag.append(li)
+}
+ulEle.append(frag)
+
+const findParentDom = (ele, tagName) => {
+  if (ele.tagName.toLowerCase() !== tagName) {
+    return findParentDom(ele.parentNode, tagName)
+  } else {
+    return ele
+  }
+}
+
+ulEle.addEventListener('click', function (e) {
+  if (e.target === ulEle) return false
+  const ele = findParentDom(e.target, 'li')
+  console.log(ele)
+})
+</script>
+</body>
+</html>
