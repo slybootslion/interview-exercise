@@ -7,7 +7,7 @@ const config: AxiosRequestConfig = {
     'Content-Type': 'application/json; charset=utf-8',
   },
   baseURL: 'http://localhost:39004/',
-  timeout: 20 * 1000, // 请求超时时间设置
+  timeout: Infinity, // 请求超时时间设置
   validateStatus (status: number) {
     return status >= 200 && status < 510
   },

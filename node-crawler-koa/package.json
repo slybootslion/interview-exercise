@@ -11,7 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "selenium-webdriver": "^4.0.0-alpha.8",
+    "@koa/cors": "^3.1.0",
+    "class-validator": "^0.13.1",
     "koa": "^2.7.0",
     "koa-body": "^4.2.0",
     "koa-helmet": "^5.2.0",
@@ -19,7 +20,9 @@
     "koa-router": "^8.0.8",
     "koa-static": "^5.0.0",
     "lodash": "^4.17.15",
-    "require-directory": "^2.1.1"
+    "require-directory": "^2.1.1",
+    "selenium-webdriver": "^4.0.0-alpha.8",
+    "validator": "^13.5.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

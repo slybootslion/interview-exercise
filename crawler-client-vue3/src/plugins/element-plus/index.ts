@@ -2,7 +2,8 @@ import {
   ElButton,
   ElSelect,
   ElMenu, ElSubmenu, ElMenuItem,
-  ElInput,
+  ElInput, ElCheckbox, ElCheckboxGroup,
+  ElImage, ElImageViewer,
 } from 'element-plus'
 import { App } from 'vue'
 import './theme/index.css'
@@ -15,4 +16,8 @@ export default function initElementPlus (app: App) {
   app.component(ElSubmenu.name, ElSubmenu)
   app.component(ElMenuItem.name, ElMenuItem)
   app.component(ElInput.name, ElInput)
+  app.component(ElCheckbox.name, ElCheckbox)
+  app.component(ElCheckboxGroup.name, ElCheckboxGroup)
+  app.component(ElImage.name, ElImage)
+  app.component(ElImageViewer.name, ElImageViewer)
 }
