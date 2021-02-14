@@ -11,7 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "selenium-webdriver": "^4.0.0-alpha.8"
+    "selenium-webdriver": "^4.0.0-alpha.8",
+    "koa": "^2.7.0",
+    "koa-body": "^4.2.0",
+    "koa-helmet": "^5.2.0",
+    "koa-mount": "^4.0.0",
+    "koa-router": "^8.0.8",
+    "koa-static": "^5.0.0",
+    "lodash": "^4.17.15",
+    "require-directory": "^2.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

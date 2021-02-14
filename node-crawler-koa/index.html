@@ -17,48 +17,64 @@ const arr = [
 ]
 
 // 下载函数
-const download = (link)=> {
-  const el = getLinkNodeElement()
-  el.setAttribute('download', '')
-  el.setAttribute('href', link)
-  const t = document.createTextNode('123')
-  el.appendChild(t)
-  // triggerClick(el)
-}
+// const download = (link)=> {
+//   const el = getLinkNodeElement()
+//   el.setAttribute('download', '')
+//   el.setAttribute('href', link)
+//   const t = document.createTextNode('123')
+//   el.appendChild(t)
+//   // triggerClick(el)
+// }
 
 // 创建 a 链接
-const getLinkNodeElement = () => {
-  const className = 'node-download'
-  const el = document.createElement('a')
-  el.setAttribute('class', className)
-  el.setAttribute('target', '_blank')
-  el.setAttribute('rel', 'noopener')
-  document.body.appendChild(el)
-  // let el = document.querySelectorAll('.className')
-  // if (!el) {
-  //   el = document.createElement('a')
-  //   el.setAttribute('id', id)
-  //   el.setAttribute('target', '_blank')
-  //   el.setAttribute('rel', 'noopener')
-  //   document.body.appendChild(el)
-  // }
-  return el
-}
+// const getLinkNodeElement = () => {
+//   const className = 'node-download'
+//   const el = document.createElement('a')
+//   el.setAttribute('class', className)
+//   el.setAttribute('target', '_blank')
+//   el.setAttribute('rel', 'noopener')
+//   document.body.appendChild(el)
+//   // let el = document.querySelectorAll('.className')
+//   // if (!el) {
+//   //   el = document.createElement('a')
+//   //   el.setAttribute('id', id)
+//   //   el.setAttribute('target', '_blank')
+//   //   el.setAttribute('rel', 'noopener')
+//   //   document.body.appendChild(el)
+//   // }
+//   return el
+// }
+//
+// // 模拟点击 a 链接
+// const triggerClick = (node) => {
+//   // try {
+//   //   if (document.createEvent) {
+//   //     const evt = document.createEvent('MouseEvents')
+//   //     evt.initEvent('click', true, false)
+//   //     node.dispatchEvent(evt)
+//   //   } else if (document.createEventObject) {
+//   //     node.fireEvent('onclick')
+//   //   }
+//   // } catch (e) {
+//   //   node.click()
+//   // }
+//    node.click()
+// }
 
-// 模拟点击 a 链接
-const triggerClick = (node) => {
-  // try {
-  //   if (document.createEvent) {
-  //     const evt = document.createEvent('MouseEvents')
-  //     evt.initEvent('click', true, false)
-  //     node.dispatchEvent(evt)
-  //   } else if (document.createEventObject) {
-  //     node.fireEvent('onclick')
-  //   }
-  // } catch (e) {
-  //   node.click()
-  // }
-   node.click()
+//
+
+const download = (url) => {
+  const x = new XMLHttpRequest();
+  x.open("GET", url, true);
+  x.responseType = 'blob';
+  x.onload = function (e) {
+    const url = window.URL.createObjectURL(x.response)
+    const a = document.createElement('a');
+    a.href = url
+    a.download = ''
+    a.click()
+  }
+  x.send();
 }
 
 // 获取地址，遍历，批量下载
