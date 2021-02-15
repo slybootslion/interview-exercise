@@ -1,9 +1,10 @@
 ---
-title: "JavaScript核心考点（基础版）05：DOM操作与BOM操作"
+title: "JavaScript核心考点（基础版）05：DOM操作与BOM操作、模块化"
 date: 2021-02-10 21:08:04
 tags:
   - 面试
   - 浏览器操作
+  - 模块化
 ---
 
 <!--banner-pic|sticker|content-img|content-img-half-->
@@ -216,3 +217,9 @@ sessionStorage 、localStorage 和 cookie 之间的区别
 三者区别:
 
 <img class="content-img" src="https://camo.githubusercontent.com/c76b93cef881f49bad52c0ac0c47714bc5aecc029a17babd69a47dcb4fe3de42/68747470733a2f2f757365722d676f6c642d63646e2e786974752e696f2f323031382f352f31392f313633373630326262613037653961633f773d3132343026683d34323126663d706e6726733d313538393330"/>
+
+几种常见模块化规范的简介：
+- CommonJS规范主要用于服务端编程，加载模块是同步的，这并不适合在浏览器环境，因为同步意味着阻塞加载，浏览器资源是异步加载的，因此有了AMD CMD解决方案
+- AMD规范在浏览器环境中异步加载模块，而且可以并行加载多个模块。不过，AMD规范开发成本高，代码的阅读和书写比较困难，模块定义方式的语义不顺畅。
+- CMD规范与AMD规范很相似，都用于浏览器编程，依赖就近，延迟执行，可以很容易在Node.js中运行。不过，依赖SPM 打包，模块的加载逻辑偏重
+- ES6 在语言标准的层面上，实现了模块功能，而且实现得相当简单，完全可以取代 CommonJS 和 AMD 规范，成为浏览器和服务器通用的模块解决方案
