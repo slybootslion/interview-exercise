@@ -39,7 +39,7 @@ const prefix = 'https://'
 export default defineComponent({
   name: 'Bcy',
   setup () {
-    const url = ref('https://bcy.net/item/detail/6922066387670146051')
+    const url = ref('')
     const picList = ref([])
     const selectList = ref([])
     const checkAll = ref(true)
@@ -80,15 +80,14 @@ export default defineComponent({
     }
 
     function downloadPic () {
-      console.log(selectList.value)
-      // https://p3-bcy.byteimg.com/img/banciyuan/b5c0b6640d2f4f28adadd89d373a73eb~tplv-banciyuan-w650.image
+      // console.log(selectList.value)
       const pics = selectList.value.map(url => {
         if (url.includes('item') || url.includes('user')) {
           return 'https://img-bcy-qn.pstatp.com' + url.split('~tplv-banciyuan-w650')[0].split('img/banciyuan')[1]
         }
         return url.replace('~tplv-banciyuan-w650', '~noop')
       })
-      console.log(pics)
+      // console.log(pics)
       for (let i = 0; i < pics.length; i++) {
         download(pics[i])
       }
