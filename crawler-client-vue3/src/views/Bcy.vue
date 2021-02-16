@@ -1,5 +1,6 @@
 <template>
   <div class="bcy-container">
+    <h1 class="page-title">bcy</h1>
     <el-input placeholder="输入网址" v-model="url">
       <template #prepend>Http://</template>
       <template #append>
@@ -34,8 +35,8 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import { BcyApi } from '@/api'
+import checkUrl from '@/views/hook/checkUrl'
 
-const prefix = 'https://'
 export default defineComponent({
   name: 'Bcy',
   setup () {
@@ -46,13 +47,8 @@ export default defineComponent({
 
     // methods
     async function getBcy () {
-      let urlVal = url.value
-      if (!url.value.startsWith('http')) {
-        urlVal = prefix + url.value
-      }
-      const reg = /^\w+[^\s]+(\.[^\s]+){1,}$/
-      if (!reg.test(urlVal)) return
-      const res = await BcyApi.getXiaoJieJie({ url: urlVal })
+      if (!checkUrl(url.value)) return
+      const res = await BcyApi.getXiaoJieJie({ url: url.value })
       selectList.value = picList.value = res
     }
 
@@ -69,7 +65,7 @@ export default defineComponent({
       const x = new XMLHttpRequest()
       x.open('GET', url, true)
       x.responseType = 'blob'
-      x.onload = function (e) {
+      x.onload = function () {
         const url = window.URL.createObjectURL(x.response)
         const a = document.createElement('a')
         a.href = url
@@ -111,6 +107,11 @@ export default defineComponent({
 <style lang="scss" rel="stylesheet/scss" scoped>
 .bcy-container {
   padding: 20px;
+
+  .page-title {
+    margin-bottom: 20px;
+    font-size: 28px;
+  }
 
   .pic-content {
     display: flex;

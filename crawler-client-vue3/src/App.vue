@@ -1,23 +1,31 @@
 <template>
   <div class="app-container">
     <div class="nav">
-      <el-menu default-active="1-1"
+      <el-menu :default-active="defaultActive"
                class="el-menu-vertical"
                :collapse="isCollapse">
-        <el-submenu index="1">
+        <el-submenu index="/zhihu">
           <template #title>
             <i class="el-icon-star-off"></i>
             <span>zhihu</span>
           </template>
-          <router-link to="/about">
-            <el-menu-item index="1-1">专栏</el-menu-item>
+          <router-link to="/zhihu/zl">
+            <el-menu-item index="/zhihu/zl">专栏</el-menu-item>
           </router-link>
-          <router-link to="/about">
-            <el-menu-item index="1-2">问题</el-menu-item>
+          <router-link to="/zhihu/wt">
+            <el-menu-item index="/zhihu/wt">问题</el-menu-item>
           </router-link>
         </el-submenu>
+        <router-link to="/juejin">
+          <el-menu-item index="/juejin">
+            <i class="el-icon-brush"></i>
+            <template #title>
+              掘金
+            </template>
+          </el-menu-item>
+        </router-link>
         <router-link to="/bcy">
-          <el-menu-item index="2">
+          <el-menu-item index="/bcy">
           <i class="el-icon-picture-outline"></i>
           <template #title>
             bcy
@@ -25,7 +33,7 @@
           </el-menu-item>
         </router-link>
         <router-link to="/about">
-          <el-menu-item index="99">
+          <el-menu-item index="/about">
           <i class="el-icon-chat-dot-square"></i>
           <template #title>
             关于
@@ -44,12 +52,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, watchEffect } from 'vue'
+import { useRoute } from 'vue-router'
 
 export default defineComponent({
   name: 'App',
   setup () {
     const isCollapse = ref(true)
+    const defaultActive = ref('1-1')
+    const route = useRoute()
+
+    watchEffect(() => {
+      defaultActive.value = route.path
+    })
 
     function checkType () {
       isCollapse.value = !isCollapse.value
@@ -57,6 +72,7 @@ export default defineComponent({
 
     return {
       isCollapse,
+      defaultActive,
       checkType,
     }
   },
