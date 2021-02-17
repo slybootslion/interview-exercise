@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "^3.1.0",
+    "@sitdown/juejin": "^1.1.1",
     "class-validator": "^0.13.1",
     "koa": "^2.7.0",
     "koa-body": "^4.2.0",
@@ -22,6 +23,7 @@
     "lodash": "^4.17.15",
     "require-directory": "^2.1.1",
     "selenium-webdriver": "^4.0.0-alpha.8",
+    "sitdown": "^1.1.6",
     "validator": "^13.5.2"
   },
   "devDependencies": {

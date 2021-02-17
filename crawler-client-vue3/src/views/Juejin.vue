@@ -7,6 +7,10 @@
         <el-button icon="el-icon-attract" @click="getJuejin"></el-button>
       </template>
     </el-input>
+    <div class="content">
+      <div class="title">{{title}}</div>
+      <div class="content">{{content}}</div>
+    </div>
   </div>
 </template>
 
@@ -19,17 +23,23 @@ export default defineComponent({
   name: 'Juejin',
   setup () {
     const url = ref('https://juejin.cn/post/6908502083075325959')
+    const title = ref('')
+    const content = ref('')
 
     async function getJuejin () {
       const urlValue = url.value
       if (!checkUrl(urlValue)) return false
       const res = await JuejinApi.getJuejin(urlValue)
       console.log(res)
+      title.value = res.title
+      content.value = res.content
     }
 
     return {
       url,
       getJuejin,
+      title,
+      content,
     }
   },
 })
