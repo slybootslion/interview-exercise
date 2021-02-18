@@ -1,12 +1,6 @@
 <template>
   <div class="bcy-container">
-    <h1 class="page-title">bcy</h1>
-    <el-input placeholder="输入网址" v-model="url">
-      <template #prepend>Http://</template>
-      <template #append>
-        <el-button icon="el-icon-attract" @click="getBcy"></el-button>
-      </template>
-    </el-input>
+    <UrlBar title="bcy" @goCrawler="getBcy"/>
     <div class="pic-content" v-if="picList.length">
       <div class="click-all">
         <el-checkbox v-model="checkAll"
@@ -35,10 +29,12 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import { BcyApi } from '@/api'
-import checkUrl from '@/views/hook/checkUrl'
+import checkUrl from '@/components/hook/checkUrl'
+import UrlBar from '@/components/UrlBar'
 
 export default defineComponent({
   name: 'Bcy',
+  components: { UrlBar },
   setup () {
     const url = ref('')
     const picList = ref([])
@@ -46,9 +42,9 @@ export default defineComponent({
     const checkAll = ref(true)
 
     // methods
-    async function getBcy () {
-      if (!checkUrl(url.value)) return
-      const res = await BcyApi.getXiaoJieJie({ url: url.value })
+    async function getBcy (url) {
+      if (!checkUrl(url)) return
+      const res = await BcyApi.getXiaoJieJie({ url })
       selectList.value = picList.value = res
     }
 

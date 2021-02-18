@@ -16,7 +16,7 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
-import checkUrl from '@/views/hook/checkUrl'
+import checkUrl from '@/components/hook/checkUrl'
 import JuejinApi from '@/api/models/JuejinApi'
 
 export default defineComponent({
@@ -46,12 +46,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" rel="stylesheet/scss" scoped>
-.container {
-  padding: 20px;
-
-  .page-title {
-    margin-bottom: 20px;
-    font-size: 28px;
-  }
-}
 </style>

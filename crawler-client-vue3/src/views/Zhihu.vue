@@ -12,7 +12,7 @@
 <script>
 import { defineComponent, ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
-import checkUrl from '@/views/hook/checkUrl'
+import checkUrl from '@/components/hook/checkUrl'
 
 export default defineComponent({
   name: 'Zhihu',

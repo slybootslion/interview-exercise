@@ -24,6 +24,14 @@
             </template>
           </el-menu-item>
         </router-link>
+        <router-link to="/weixin">
+          <el-menu-item index="/weixin">
+            <i class="el-icon-chat-round"></i>
+            <template #title>
+              微信
+            </template>
+          </el-menu-item>
+        </router-link>
         <router-link to="/bcy">
           <el-menu-item index="/bcy">
           <i class="el-icon-picture-outline"></i>

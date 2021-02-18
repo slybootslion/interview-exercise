@@ -27,6 +27,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Juejin',
     component: () => import(/* webpackChunkName: "bcy" */ '../views/Juejin.vue'),
   },
+  {
+    path: '/weixin',
+    name: 'WeChat',
+    component: () => import(/* webpackChunkName: "bcy" */ '../views/WeChat.vue'),
+  },
 ]
 
 const router = createRouter({
