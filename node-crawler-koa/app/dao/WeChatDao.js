@@ -1,14 +1,14 @@
 import { openChrome } from './hook/createDriver'
 import { By } from 'selenium-webdriver'
 
-class JuejinDao {
+class WeChatDao {
   constructor (url) {
     this.url = url
     this.driver = null
     this.data = null
   }
 
-  async getBlog () {
+  async getArticle () {
     const url = this.url
     await this.initDriver(url)
     if (this.driver) await this.getContent()
@@ -28,12 +28,12 @@ class JuejinDao {
   }
 
   async findArticleTitle () {
-    this.data.title = await this.driver.findElement(By.className('article-title')).getAttribute('innerText')
+    this.data.title = await this.driver.findElement(By.id('activity-name')).getAttribute('innerText')
   }
 
   async getContentHtml () {
-    this.data.content = await this.driver.findElement(By.className('article-content')).getAttribute('innerHTML')
+    this.data.content = await this.driver.findElement(By.id('js_content')).getAttribute('innerHTML')
   }
 }
 
-export default JuejinDao
+export default WeChatDao

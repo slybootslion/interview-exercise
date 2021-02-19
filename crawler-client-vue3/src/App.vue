@@ -4,18 +4,6 @@
       <el-menu :default-active="defaultActive"
                class="el-menu-vertical"
                :collapse="isCollapse">
-        <el-submenu index="/zhihu">
-          <template #title>
-            <i class="el-icon-star-off"></i>
-            <span>zhihu</span>
-          </template>
-          <router-link to="/zhihu/zl">
-            <el-menu-item index="/zhihu/zl">专栏</el-menu-item>
-          </router-link>
-          <router-link to="/zhihu/wt">
-            <el-menu-item index="/zhihu/wt">问题</el-menu-item>
-          </router-link>
-        </el-submenu>
         <router-link to="/juejin">
           <el-menu-item index="/juejin">
             <i class="el-icon-brush"></i>
