@@ -12,8 +12,10 @@ export default defineComponent({
   name: 'WeChat',
   components: { UrlBar },
   setup () {
-    function getWeChat (url) {
-      console.log(url)
+    async function getWeChat (url) {
+      // const driver = await SingleInstance.createDriver()
+      // await driver.get(url)
+      // await driver.quit()
     }
 
     return {

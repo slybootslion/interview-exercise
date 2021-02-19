@@ -1,12 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="page-title">掘金文章获取</h1>
-    <el-input placeholder="输入网址" v-model="url">
-      <template #prepend>Http://</template>
-      <template #append>
-        <el-button icon="el-icon-attract" @click="getJuejin"></el-button>
-      </template>
-    </el-input>
+    <UrlBar title="掘金" @goCrawler="getJuejin"/>
     <div class="content">
       <div class="title">{{title}}</div>
       <div class="content">{{content}}</div>
@@ -16,27 +10,24 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
-import checkUrl from '@/components/hook/checkUrl'
 import JuejinApi from '@/api/models/JuejinApi'
+import UrlBar from '@/components/UrlBar'
 
 export default defineComponent({
   name: 'Juejin',
+  components: { UrlBar },
   setup () {
-    const url = ref('https://juejin.cn/post/6908502083075325959')
     const title = ref('')
     const content = ref('')
 
-    async function getJuejin () {
-      const urlValue = url.value
-      if (!checkUrl(urlValue)) return false
-      const res = await JuejinApi.getJuejin(urlValue)
+    async function getJuejin (url) {
+      const res = await JuejinApi.getJuejin(url)
       console.log(res)
       title.value = res.title
       content.value = res.content
     }
 
     return {
-      url,
       getJuejin,
       title,
       content,

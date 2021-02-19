@@ -28,6 +28,7 @@ export default defineComponent({
     function getZhihu () {
       const urlType = type.value
       if (!checkUrl(url.value)) return false
+      console.log(urlType)
     }
 
     return {
