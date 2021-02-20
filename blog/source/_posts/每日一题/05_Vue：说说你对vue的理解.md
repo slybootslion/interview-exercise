@@ -27,8 +27,7 @@ MVVM表示的是 Model-View-ViewModel
 - ViewModel：视图模型层，用来连接Model和View，是Model和View之间的通信桥梁
 
 这时候需要一张直观的关系图，如下
-<img class="banner-pic" src="http://oss.slybootslion.com/blog/640.webp?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
-
+<img class="banner-pic" src="http://oss.slybootslion.com/blog/说说你对vue的理解1.webp?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
 
 
 #### 组件化
@@ -52,20 +51,22 @@ MVVM表示的是 Model-View-ViewModel
 - 事件绑定指令v-on
 - 双向数据绑定指令v-model
 
+<!-- more -->
+
 ### Vue跟传统开发的区别
 
 没有落地使用场景的革命不是好革命，就以一个高频的应用场景来示意吧
 注册账号这个需求大家应该很熟悉了，如下:
 
-<img class="banner-pic" src="http://oss.slybootslion.com/blog/640 (1).webp?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
+<img class="banner-pic" src="http://oss.slybootslion.com/blog/说说你对vue的理解2.webp?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
 
 用jquery来实现大概的思路就是选择流程dom对象，点击按钮隐藏当前活动流程dom对象，显示下一流程dom对象
-<img class="banner-pic" src="http://oss.slybootslion.com/blog/640 (2).webp?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
+<img class="banner-pic" src="http://oss.slybootslion.com/blog/说说你对vue的理解3.webp?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
 
 用vue来实现，我们知道vue基本不操作dom节点， 双向绑定使dom节点跟视图绑定后，通过修改变量的值控制dom节点的各类属性。
 
 所以其实现思路为：视图层使用一变量控制dom节点显示与否，点击按钮则改变该变量，如下图
-<img class="banner-pic" src="http://oss.slybootslion.com/blog/640 (3).webp?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
+<img class="banner-pic" src="http://oss.slybootslion.com/blog/说说你对vue的理解4.webp?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
 
 总结就是：
 Vue所有的界面事件，都是只去操作数据的，Jquery操作DOM
@@ -87,5 +88,3 @@ Vue所有界面的变动，都是根据数据自动绑定出来的，Jquery操�
 - 数据变化的实现原理不同。react使用的是不可变数据，而Vue使用的是可变的数据
 - 组件化通信的不同。react中我们通过使用回调函数来进行通信的，而Vue中子组件向父组件传递消息有两种方式：事件和回调函数
 - diff算法不同。react主要使用diff队列保存需要更新哪些DOM，得到patch树，再统一操作批量更新DOM。Vue 使用双向指针，边对比，边更新DOM
-
-<!-- more -->

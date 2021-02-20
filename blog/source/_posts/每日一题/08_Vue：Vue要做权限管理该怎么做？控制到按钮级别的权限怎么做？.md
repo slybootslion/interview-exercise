@@ -8,6 +8,7 @@ tags:
 ---
 
 <!--banner-pic|sticker|content-img|content-img-half-->
+<img class="banner-pic" src="http://oss.slybootslion.com/blog/1_wFL3csJ96lQpY0IVT9SE3w.jpeg?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
 
 ## 一、是什么
 
@@ -159,6 +160,7 @@ router.afterEach(() => {
   NProgress.done() // finish progress bar  
 })  
 ```
+<!-- more -->
 
 按需挂载路由就需要知道用户的路由权限，也就是在用户登录进来的时候就要知道当前用户拥有哪些路由权限
 这种方式也存在了以下的缺点：
@@ -285,7 +287,6 @@ export default {
 这种方法也会存在缺点：
 - 全局路由守卫里，每次路由跳转都要做判断
 - 前后端的配合要求更高
-<!-- more -->
 
 ### 按钮权限
 
