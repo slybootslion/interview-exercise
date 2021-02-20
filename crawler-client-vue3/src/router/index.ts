@@ -8,11 +8,6 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
-  },
-  {
     path: '/bcy',
     name: 'Bcy',
     component: () => import(/* webpackChunkName: "bcy" */ '../views/Bcy.vue'),
@@ -26,6 +21,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/weixin',
     name: 'WeChat',
     component: () => import(/* webpackChunkName: "bcy" */ '../views/WeChat.vue'),
+  },
+  {
+    path: '/zhihu',
+    name: 'Zhihu',
+    component: () => import(/* webpackChunkName: "bcy" */ '../views/Zhihu.vue'),
   },
 ]
 

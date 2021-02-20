@@ -4,28 +4,13 @@ class ZhihuApi {
   private prefix: string
 
   constructor () {
-    this.prefix = '/bcy'
+    this.prefix = '/zhihu'
   }
 
-  getZhihu (url: string, type: string) {
-    if (type === 'zl') {
-      this.zl(url)
-    } else {
-      this.wt(url)
-    }
-  }
-
-  zl (url: string) {
+  getZhihu (url: string) {
     return http({
-      url: `${this.prefix}/zl`,
-      params: url,
-    })
-  }
-
-  wt (url: string) {
-    return http({
-      url: `${this.prefix}/wt`,
-      params: url,
+      url: `${this.prefix}/`,
+      params: { url },
     })
   }
 }

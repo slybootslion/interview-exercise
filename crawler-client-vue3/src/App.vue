@@ -20,19 +20,19 @@
             </template>
           </el-menu-item>
         </router-link>
+        <router-link to="/zhihu">
+          <el-menu-item index="/zhihu">
+            <i class="el-icon-thumb"></i>
+            <template #title>
+              知乎
+            </template>
+          </el-menu-item>
+        </router-link>
         <router-link to="/bcy">
           <el-menu-item index="/bcy">
           <i class="el-icon-picture-outline"></i>
           <template #title>
             bcy
-          </template>
-          </el-menu-item>
-        </router-link>
-        <router-link to="/about">
-          <el-menu-item index="/about">
-          <i class="el-icon-chat-dot-square"></i>
-          <template #title>
-            关于
           </template>
           </el-menu-item>
         </router-link>
@@ -55,7 +55,7 @@ export default defineComponent({
   name: 'App',
   setup () {
     const isCollapse = ref(true)
-    const defaultActive = ref('1-1')
+    const defaultActive = ref('/juejin')
     const route = useRoute()
 
     watchEffect(() => {
