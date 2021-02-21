@@ -9,13 +9,13 @@ Function.prototype.myCall = function (ctx, ...args) {
   return res
 }
 
-Function.prototype.myApply = function (ctx, ...args) {
+Function.prototype.myApply = function (ctx, args) {
   if (typeof this !== 'function') throw new TypeError('类型错误')
   ctx = ctx || window
   ctx = Object(ctx)
   const key = Symbol()
   ctx[key] = this
-  const res = ctx[key](args)
+  const res = ctx[key](...args)
   delete ctx[key]
   return res
 }
@@ -24,7 +24,7 @@ Function.prototype.myApply = function (ctx, ...args) {
 Function.prototype.myBind = function (ctx, ...args) {
   if (typeof this !== 'function') throw new TypeError('类型错误')
   ctx = Object(ctx || window)
-  return function (...args1) {
+  return (...args1) => {
     return this.apply(ctx, [...args, ...args1])
   }
 }

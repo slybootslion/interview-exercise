@@ -19,7 +19,7 @@ Promise.myAll = function (arr) {
   })
 }
 
-promise.myRace = function (arr) {
+Promise.myRace = function (arr) {
   return new Promise((resolve, reject) => {
     for (let i = 0; i < arr.length; i++) {
       if (!arr[i] instanceof Promise) {

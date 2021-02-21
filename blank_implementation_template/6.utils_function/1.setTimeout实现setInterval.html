@@ -2,17 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>setTimeout实现setInterval</title>
 </head>
 <body>
-<script src="./index.js" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
 function myInterval (fn, interval, ...args) {
-  let ctx = this
-  setTimeout(() => {
-    fn.apply(ctx, args)
-    myInterval(fn, interval, ...args)
-  }, interval)
+
 }
 
 myInterval(num => console.log(num), 1000, 10)

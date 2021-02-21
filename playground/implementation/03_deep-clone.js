@@ -3,7 +3,7 @@ function deepClone (value) {
   if (value instanceof RegExp) return new RegExp(value)
   if (value instanceof Date) return new RegExp(value)
   const isObj = (v) => typeof v === 'object' && v != null
-  const obj = Array.isArray(value) ? [...value] : { ...value }
+  const obj = Array.isArray(value) ? [] : {}
   Reflect.ownKeys(value).forEach(key => {
     obj[key] = isObj(value[key]) ? deepClone(value[key]) : value[key]
   })
@@ -11,7 +11,7 @@ function deepClone (value) {
 }
 
 // 精进版
-function deep_clone (value) {
+function deep_clone (value, hash=new Map()) {
   if (obj === null) return obj; // 如果是null或者undefined我就不进行拷贝操作
   if (obj instanceof Date) return new Date(obj);
   if (obj instanceof RegExp) return new RegExp(obj);
@@ -25,7 +25,7 @@ function deep_clone (value) {
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
       // 实现一个递归拷贝
-      cloneObj[key] = deepClone(obj[key], hash);
+      cloneObj[key] = deep_clone(obj[key], hash);
     }
   }
   return cloneObj;
