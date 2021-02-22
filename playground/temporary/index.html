@@ -7,15 +7,14 @@
 <body>
 <script src="./index.js" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-function myInterval (fn, interval, ...args) {
-  let ctx = this
-  setTimeout(() => {
-    fn.apply(ctx, args)
-    myInterval(fn, interval, ...args)
-  }, interval)
+const arr = [3, 1, 3, 2, 5, 4, 5, 5, 6]
+
+function findBigNum (k, arr) {
+  arr = [...new Set(arr.sort((a, b) => b - a))]
+  return arr[k - 1]
 }
 
-myInterval(num => console.log(num), 1000, 10)
+console.log(findBigNum(3, arr))
 </script>
 </body>
 </html>

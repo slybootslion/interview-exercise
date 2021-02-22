@@ -15,7 +15,8 @@
 <script type="text/javascript" charset="utf-8">
 /*call apply bind 测试用例*/
 let cc = {
-  a: 1
+  a: 1,
+  name: 'cc'
 }
 
 function demo (x1, x2) {
@@ -34,10 +35,11 @@ function say (something, other) {
   console.log('This is some' + other)
 }
 
-// let tmp = say.myBind(cc, 'happy', 'you are kute')
-// let tmp1 = say.bind(cc, 'happy', 'you are kute')
-// tmp()
-// tmp1()
+let tmp1 = say.bind(cc, 'happy', 'you are kute')
+let tmp = say.myBind(cc, 'happy', 'you are kute')
+tmp1()
+const c = new tmp()
+console.log(c)
 
 /*instanceof测试用例*/
 function AFun (name) {
