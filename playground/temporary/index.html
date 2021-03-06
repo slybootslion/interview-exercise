@@ -7,14 +7,19 @@
 <body>
 <script src="./index.js" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-const arr = [3, 1, 3, 2, 5, 4, 5, 5, 6]
-
-function findBigNum (k, arr) {
-  arr = [...new Set(arr.sort((a, b) => b - a))]
-  return arr[k - 1]
+function go (str) {
+  let start = 'go'
+  if (str) return start += str
+  return function a(str2) {
+    start += 'o'
+    if (str2) return start += str2
+    else return a
+  }
 }
 
-console.log(findBigNum(3, arr))
+console.log(go('l'))
+console.log(go()('l'))
+console.log(go()()('l'))
 </script>
 </body>
 </html>
