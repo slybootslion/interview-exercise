@@ -7,19 +7,35 @@
 <body>
 <script src="./index.js" charset="utf-8"></script>
 <script type="text/javascript" charset="utf-8">
-function go (str) {
-  let start = 'go'
-  if (str) return start += str
-  return function a(str2) {
-    start += 'o'
-    if (str2) return start += str2
-    else return a
+const plane = {
+  fire: function  (){
+    console.log('发射普通子弹')
   }
 }
 
-console.log(go('l'))
-console.log(go()('l'))
-console.log(go()()('l'))
+const missleDecorator = function () {
+  console.log('发射导弹')
+}
+
+const atomDecorator = function  (){
+  console.log('发射原子弹')
+}
+
+const fire1 = plane.fire
+
+plane.fire = function () {
+  fire1()
+  missleDecorator()
+}
+
+const fire2 = plane.fire
+
+plane.fire = function  (){
+  fire2()
+  atomDecorator()
+}
+
+plane.fire()
 </script>
 </body>
 </html>
