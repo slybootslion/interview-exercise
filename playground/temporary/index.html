@@ -1,25 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
-<body>
-<script src="./index.js" charset="utf-8"></script>
-<script type="text/javascript" charset="utf-8">
-function go (str) {
-  let start = 'go'
-  if (str) return start += str
-  return function a(str2) {
-    start += 'o'
-    if (str2) return start += str2
-    else return a
-  }
-}
 
-console.log(go()()('l'))
-console.log(go()('l'))
-console.log(go('l'))
-</script>
+<body>
+  <script src="./index.js" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    let n = '10', m = 10
+    console.log(10 + n) // "1010"
+    console.log(++n) // 11
+    console.log(+n) // 11
+
+    console.log({} + m) // "[object Object]10 "
+    let res = {} + m
+    console.log(res) // "[object Object]10"
+
+    console.log(m + {}) // "10[object Object]"
+    console.log(m + new Number(10)) // 20
+    console.log(m + { value: 10 }) // "10[object Object]"
+  </script>
 </body>
+
 </html>
