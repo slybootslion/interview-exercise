@@ -9,18 +9,16 @@
 <body>
   <script src="./index.js" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
-    let n = '10', m = 10
-    console.log(10 + n) // "1010"
-    console.log(++n) // 11
-    console.log(+n) // 11
-
-    console.log({} + m) // "[object Object]10 "
-    let res = {} + m
-    console.log(res) // "[object Object]10"
-
-    console.log(m + {}) // "10[object Object]"
-    console.log(m + new Number(10)) // 20
-    console.log(m + { value: 10 }) // "10[object Object]"
+    var x = 100
+    function fn() {
+      var x = 200
+      return function (y) {
+        console.log(y + x++)
+      }
+    }
+    var f = fn()
+    f(10) // 210
+    f(20) // 221
   </script>
 </body>
 
