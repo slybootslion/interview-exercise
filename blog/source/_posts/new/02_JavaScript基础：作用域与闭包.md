@@ -8,6 +8,8 @@ tags:
 
 <!--banner-pic|sticker|content-img|content-img-half-->
 
+<img alt="" class="banner-pic" src="https://slybootslion-blog.oss-cn-chengdu.aliyuncs.com/blog-head/2021-04-16/ac67240f4b2ecbac5e29fe586ddf4c52.jpg?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
+
 这个部分，所有的基础知识都特别枯燥，很多人说到作用域闭包都是从JavaScript有什么样的作用域来说，其实要说到作用域和闭包，最基础的还是堆栈内存。
 但是这些内容又及其枯燥，什么值类型在栈内存中，引用类型在堆内存中开辟一块空间，让如一个十六进制的地址在栈内存，巴拉巴拉的一堆东西，然后函数入栈出栈，很无聊。
 所以，还是得从古怪的面试题来看。
