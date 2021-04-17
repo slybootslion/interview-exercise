@@ -9,16 +9,16 @@
 <body>
   <script src="./index.js" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
-    var x = 100
+    var x = 100;
     function fn() {
-      var x = 200
+      var x = 200;
       return function (y) {
-        console.log(y + x++)
-      }
+        console.log(y + x++);
+      };
     }
-    var f = fn()
-    f(10) // 210
-    f(20) // 221
+    var f = fn();
+    f(10); // 210
+    f(20); // 221
   </script>
 </body>
 
