@@ -5,15 +5,19 @@
   <meta charset="UTF-8">
   <title>Title</title>
 </head>
+<button>1</button><button>2</button><button>3</button>
 
 <body>
   <script src="./index.js" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
-    let arr = [10.18, 0, 10, 25, 23]
-    arr = arr.map(parseInt)
-    console.log(arr) // [10, NaN, 2, 2, 11]
-    console.log(2 * Math.pow(4, 2))
-    console.log(2 * Math.pow(4, 1) + (3 * Math.pow(4, 0)) + (1 * Math.pow(4, -1)) + (2 * Math.pow(4, -2)))
+    const btns = document.querySelectorAll('button')
+    for (var i = 0; i < btns.length; i++) {
+      const btnEle = btns[i]
+      btnEle.myIndex = i
+      btnEle.onclick = function () {
+        console.log(this.myIndex)
+      }
+    }
   </script>
 </body>
 
