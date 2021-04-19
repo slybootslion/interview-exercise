@@ -3626,3 +3626,7 @@ a.pswp__share--download:hover {
 .article .banner-pic {
   width: 768px;
 }
+
+.article-inner p {
+  margin-bottom: 10px;
+}

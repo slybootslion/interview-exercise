@@ -12,8 +12,6 @@ tags:
 
 > 散落在各处，好像有体系，但是又没有体系的知识点或者题，收录在这些个散落的日志中。
 
-### 数据类型
-
 #### 1. 数字类型（number）
 
 + NaN:not a number 不是一个有效数字，但是属于number类型的
@@ -21,17 +19,6 @@ tags:
   + isNaN([value]):检测当前值是否不是效数字，不是有效数字返回true，反之是有效数字则返回false
   + Object.is(NaN, NaN):true  「is方法内部做了特殊的处理」
 + Infinity：无限大 -Infinity：无限小
-
---- 
-
-把其它数据类型转换为number类型
-
- + 显式转换「 Number([value]) | parseInt/parseFloat([value]) 」
- + 隐式转换 -> Number
-   + 数学运算
-   + 基于==比较的时候
-   + isNaN([value])
-   + ...
 
 ```js
 console.log(typeof NaN); //->'number'
