@@ -10,6 +10,8 @@ tags:
 
 <img alt="" class="banner-pic" src="https://slybootslion-blog.oss-cn-chengdu.aliyuncs.com/blog-head/2021-04-20/ffb2ee6fa4ab014730a931533630d660.jpg?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
 
+> 散落在各处，好像有体系，但是又没有体系的知识点或者题，收录在这些个散落的日志中。
+
 ### 什么是this
 
 一句话概括：函数的执行主体（不等价于执行上下文「作用域」）。
