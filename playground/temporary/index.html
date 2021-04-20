@@ -10,15 +10,23 @@
 <body>
   <script src="./index.js" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
-    let a = 0, b = 0
-    function A(a) {
-      A = function (b) {
-        console.log(a + b++)
+    var x = 3,
+      obj = { x: 5 };
+    obj.fn = (function () {
+      this.x *= ++x; // window.x = 3 * 4 = 12
+      return function (y) {
+        this.x *= (++x) + y;
+        console.log(x);
       }
-      console.log(a++)
-    }
-    A(1) // 1
-    A(2) // 2 + 2 = 4
+    })();
+    var fn = obj.fn;
+    obj.fn(6); // y = 6 obj.x = 5 obj.x = 5 * (13 + 6) = 95  window.x = 13 
+    fn(4); // y = 4 obj.x = 95 window.x = 13 * (14 + 4) = 234
+    console.log(obj.x, x); // 
+
+    // 13
+    // 234
+    // 95 234
   </script>
 </body>
 
