@@ -8,7 +8,7 @@ tags:
 
 <!--banner-pic|sticker|content-img|content-img-half-->
 
-<!-- <img alt="" class="banner-pic" src="https://slybootslion-blog.oss-cn-chengdu.aliyuncs.com/blog-head/2021-04-16/868b072788159c5abdca7d4220c13334.jpg?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/> -->
+<img alt="" class="banner-pic" src="https://slybootslion-blog.oss-cn-chengdu.aliyuncs.com/blog-head/2021-04-16/868b072788159c5abdca7d4220c13334.jpg?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
 
 > 散落在各处，好像有体系，但是又没有体系的知识点或者题，收录在这些个散落的日志中。
 
@@ -22,12 +22,10 @@ function fn(x) {
     }
 }
 let f = fn(6);
-f(7);
-fn(8)(9);
-f(10);
-console.log(x);
-
-// 14 18 18 5
+f(7); // 14
+fn(8)(9); // 18
+f(10); // 18
+console.log(x); // 5
 ```
 
 拓展知识点 ++i 和 i++ 的区别：
@@ -67,13 +65,24 @@ console.log(i); //->'11'
 ```
 
 题解：
-<!-- <img alt="" class="content-img" src="https://slybootslion-blog.oss-cn-chengdu.aliyuncs.com/blog/2021-04-20/0408022a13a12c45c7169e9a7e2447ff.png?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/> -->
+<img alt="" class="content-img" src="https://slybootslion-blog.oss-cn-chengdu.aliyuncs.com/blog/2021-04-20/0408022a13a12c45c7169e9a7e2447ff.png?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
 
 #### 第二题
 
 ```js
-
+  let a = 0, b = 0
+  function A(a) {
+    A = function (b) {
+      console.log(a + b++)
+    }
+    console.log(a++)
+  }
+  A(1) // 1
+  A(2) // 2 + 2 = 4
 ```
+
+题解：
+<img alt="" class="banner-pic" src="https://slybootslion-blog.oss-cn-chengdu.aliyuncs.com/blog/2021-04-20/f586b20bbabfa74f2ce87cd6b20c799e.png?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
 
 
 

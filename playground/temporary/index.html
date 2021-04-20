@@ -10,9 +10,15 @@
 <body>
   <script src="./index.js" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
-    let i = 2;
-    console.log(2 + (++i) - (i++) + 3 - (i--) + (--i)); // 2 + 3 - 4 + 3 - 3 + 2 = 3
-    console.log(i); // 2
+    let a = 0, b = 0
+    function A(a) {
+      A = function (b) {
+        console.log(a + b++)
+      }
+      console.log(a++)
+    }
+    A(1) // 1
+    A(2) // 2 + 2 = 4
   </script>
 </body>
 
