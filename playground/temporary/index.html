@@ -10,45 +10,15 @@
 <body>
   <script src="./index.js" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
-    const curry = (fn) => {
-      return function f(...args) {
-        if (fn.length > args.length) return f.bind(f, ...args)
-        else return fn(...args)
-      }
+    var x = 1
+    function func(x, y = function anonymous1() { x = 2 }) {
+      var x = 3
+      var y = function anonymous2() { x = 4 }
+      y()
+      console.log(x)
     }
-    const sum = (x, y, z) => {
-      return x + y + z
-    }
-    const f = curry(sum)
-    console.log(f(1)(2)(3));
-    console.log(f(1, 2)(3))
-    console.log(f(1)(2, 3))
-
-    const cur = (x) => {
-      return function (...args) {
-        return args.reduce((pre, cur) => {
-          return pre + cur
-        }, x)
-      }
-    }
-    const s = cur(1)
-    console.log(s(2))
-    console.log(s(2, 3))
-
-    Array.prototype.reduce = function reduce(callback, initial) {
-      const self = this
-      let i = 0
-      if (typeof callback !== 'function') throw new TypeError('callback must be an function')
-      if (typeof initial === 'undefined') {
-        initial = self[0]
-        i = 1
-      }
-      for (; i < self.length; i++) {
-        const item = self[i], index = i
-        initial = callback(initial, item, index)
-      }
-      return initial
-    }
+    func(5)
+    console.log(x)
   </script>
 </body>
 
