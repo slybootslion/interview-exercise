@@ -10,22 +10,19 @@
 <body>
   <script src="./index.js" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
-    function compose(...funcs) {
-      return function operate(x) {
-        if (funcs.length === 0) return x
-        if (funcs.length === 1) return typeof funcs[0] === 'function' ? funcs[0](x) : x
-
-        return funcs.reduceRight((res, item) => typeof item !== 'function' ? res : item(res), x)
+    var name = 'window';
+    var Tom = {
+      name: "Tom",
+      show: function () {
+        console.log(this.name);
+      },
+      wait: function () {
+        var fun = this.show;
+        fun();
       }
-    }
+    };
+    Tom.wait();
 
-    const add1 = x => x + 1;
-    const mul3 = x => x * 3;
-    const div2 = x => x / 2;
-
-    var operate = compose(div2, mul3, add1);
-    var result = operate(0);
-    console.log(result);
   </script>
 </body>
 

@@ -1,5 +1,5 @@
 ---
-title: "JavaScript基础：闭包作用域练习题"
+title: "JavaScript基础：变量提升基础练习"
 date: 2021-04-21 12:06:52
 tags:
   - 面试
@@ -7,7 +7,9 @@ tags:
 
 <!--banner-pic|sticker|content-img|content-img-half-->
 
-#### 第一题
+<img alt="" class="banner-pic" src="https://slybootslion-blog.oss-cn-chengdu.aliyuncs.com/blog-head/2021-04-20/a41a396e65ab96a8994e52818e5069c2.jpg?x-oss-process=image/auto-orient,1/quality,q_80/watermark,text_c2x5Ym9vdHNsaW9u,color_ffffff,size_40,shadow_70,t_74,x_10,y_10"/>
+
+### 第一题
 
 ```js
 console.log(a, b, c); 
@@ -31,7 +33,7 @@ console.log(a, b, c);
 
 变量提升和作用域的问题，太简单了，不解释。
 
-#### 第二题
+### 第二题
 
 ```js
 var i = 0;
@@ -56,7 +58,7 @@ B();
 
 闭包的知识。
 
-#### 第三题
+### 第三题
 
 ```js
 var a = 1;
@@ -76,7 +78,7 @@ console.log(obj); // {name: 'jack'}
 
 毫无难度。
 
-#### 第四题
+### 第四题
 
 ```js
 var a = 1;
@@ -113,7 +115,7 @@ console.log(x);
 
 说明：形参赋值，已经确定了x的作用域。
 
-#### 第五题
+### 第五题
 
 ```js
 console.log(a); 
@@ -164,7 +166,7 @@ console.log(a);
 
 <!-- more -->
 
-#### 第六题
+### 第六题
 
 ```js
 var foo='hello'; 
@@ -181,7 +183,7 @@ console.log(foo);
 
 太简单了，不知道难度在哪儿。
 
-#### 第七题
+### 第七题
 
 新老浏览器会有区别，为了兼容ES5和ES6代码块的区别，会有不同的输出。
 如果哪个面试敢出这种题给我，我就一巴掌拍死他。
@@ -220,7 +222,7 @@ console.log(foo);
 // 1
 ```
 
-#### 第八题
+### 第八题
 
 ```js
 var x = 1
