@@ -55,7 +55,7 @@ document.body.addEventListener('click', function () {
 
 ```js
 var obj = {
-    name: 'zhufeng'
+    name: 'xxx'
 };
 setTimeout(function () {
     console.log(this); //->window
