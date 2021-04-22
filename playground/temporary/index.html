@@ -10,15 +10,22 @@
 <body>
   <script src="./index.js" charset="utf-8"></script>
   <script type="text/javascript" charset="utf-8">
-    var x = 1
-    function func(x, y = function anonymous1() { x = 2 }) {
-      var x = 3
-      var y = function anonymous2() { x = 4 }
-      y()
-      console.log(x)
+    function compose(...funcs) {
+      return function operate(x) {
+        if (funcs.length === 0) return x
+        if (funcs.length === 1) return typeof funcs[0] === 'function' ? funcs[0](x) : x
+
+        return funcs.reduceRight((res, item) => typeof item !== 'function' ? res : item(res), x)
+      }
     }
-    func(5)
-    console.log(x)
+
+    const add1 = x => x + 1;
+    const mul3 = x => x * 3;
+    const div2 = x => x / 2;
+
+    var operate = compose(div2, mul3, add1);
+    var result = operate(0);
+    console.log(result);
   </script>
 </body>
 
