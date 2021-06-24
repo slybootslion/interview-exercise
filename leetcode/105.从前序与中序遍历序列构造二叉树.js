@@ -18,13 +18,21 @@
  * @param {number[]} inorder
  * @return {TreeNode}
  */
-var buildTree = function(preorder, inorder) {
+var buildTree = function (preorder, inorder) {
   if (!inorder.length) return null
   const rootVal = preorder[0]
-  const mid = inorder.indexOf(rootVal)
   const treeNode = new TreeNode(rootVal)
+  
+  const mid = inorder.indexOf(rootVal)
   const iLeftArr = inorder.slice(0, mid)
-  const pLeftArr = preorder
+  const pLeftArr = preorder.slice(1, mid + 1)
+  treeNode.left = buildTree(pLeftArr, iLeftArr)
+  
+  const iRightArr = inorder.slice(mid + 1)
+  const pRightArr = preorder.slice(mid + 1)
+  treeNode.right = buildTree(pRightArr, iRightArr)
+  
+  return treeNode
 };
 // @lc code=end
 
